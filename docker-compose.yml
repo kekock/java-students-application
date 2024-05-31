@@ -1,0 +1,16 @@
+volumes:
+  pg_student:
+
+services:
+  student_db:
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_DB=student_db
+    volumes:
+      - pg_student:/var/lib/postgresql/data
+
+    ports:
+      - "0.0.0.0:5432:5432"
